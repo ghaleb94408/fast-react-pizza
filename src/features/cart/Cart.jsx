@@ -46,7 +46,7 @@ function Cart() {
       </ul>
       <div className="mt-6 space-x-2">
         <Button to="/order/new" type="primary">
-          OrderPizzas
+          Order Pizzas
         </Button>
         <Button type="secondary">Clear cart</Button>
       </div>
