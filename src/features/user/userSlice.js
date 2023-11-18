@@ -31,9 +31,9 @@ import { createSlice } from '@reduxjs/toolkit';
 //   // 3) Then we return an object with the data that we are interested in
 //   return { position, address };
 // }
-const initialState = { username: 'Jonas Schmidtmann' };
+const initialState = { username: '' };
 const userSlice = createSlice({
-  name: 'users',
+  name: 'user',
   initialState,
   reducers: {
     updateName(state, action) {
