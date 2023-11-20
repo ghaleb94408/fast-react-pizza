@@ -8,7 +8,7 @@ import EmptyCart from './EmptyCart';
 
 function Cart() {
   function handleClear() {
-    dispatch(clearCart());
+    dispatch(clearCart);
   }
   const dispatch = useDispatch();
   const cart = useSelector(getCart);

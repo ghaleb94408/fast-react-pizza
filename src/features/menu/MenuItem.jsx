@@ -1,14 +1,17 @@
-import { formatCurrency } from '../../util/helpers';
-import Button from '../../ui/Button';
-import { addItem, getCurrentQuantityById } from '../cart/cartSlice';
+/* eslint-disable react/prop-types */
 import { useDispatch, useSelector } from 'react-redux';
-import DeleteItem from '../cart/DeleteItem';
+import Button from '../../ui/Button';
 import UpdateItemQuantity from '../cart/UpdateItemQuantity';
+import DeleteItem from '../cart/DeleteItem';
+import { addItem, getCurrentQuantityById } from '../cart/cartSlice';
+import { formatCurrency } from '../../util/helpers';
+
 function MenuItem({ pizza }) {
   const dispatch = useDispatch();
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
   const currentQuantity = useSelector(getCurrentQuantityById(id));
   const isInCart = currentQuantity > 0;
+
   function handleAddToCart() {
     const newItem = {
       pizzaId: id,
@@ -19,6 +22,7 @@ function MenuItem({ pizza }) {
     };
     dispatch(addItem(newItem));
   }
+
   return (
     <li className="flex gap-4 py-2">
       <img
