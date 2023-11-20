@@ -8,6 +8,7 @@ import {
 import { getOrder } from '../../services/apiRestaurant';
 import { useFetcher, useLoaderData } from 'react-router-dom';
 import OrderItem from './OrderItem';
+import UpdateOrder from './UpdateOrder';
 import { useEffect } from 'react';
 
 function Order() {
@@ -19,6 +20,7 @@ function Order() {
     },
     [fetcher],
   );
+  const order = useLoaderData();
   const {
     id,
     status,
@@ -27,9 +29,8 @@ function Order() {
     orderPrice,
     estimatedDelivery,
     cart,
-  } = useLoaderData();
+  } = order;
   const deliveryIn = calcMinutesLeft(estimatedDelivery);
-
   return (
     <div className="space-y-8 px-4 py-6">
       <div className="flex flex-wrap items-center justify-between gap-2">
@@ -83,6 +84,7 @@ function Order() {
           To pay on delivery: {formatCurrency(orderPrice + priorityPrice)}
         </p>
       </div>
+      {!priority && <UpdateOrder order={order} />}
     </div>
   );
 }
